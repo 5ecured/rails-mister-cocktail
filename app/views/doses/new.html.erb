@@ -1,0 +1,21 @@
+<h1>this is the new doses page</h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit "Add dose", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back to home", cocktails_path %>
+
+
+
+<!--
+line 3: so remember. this is doses. nested. so have to go [@cocktail, @dose] these two are from doses_controller new method because
+rails is smart.
+
+line 4: simple, dose has :description , not :name
+line 5: f.association will display all possible ingredients when you click on the field
+-->
+
+

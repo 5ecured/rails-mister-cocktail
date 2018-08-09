@@ -1,0 +1,26 @@
+<h1>This is the show page to show a particular cocktail</h1>
+<h3>Here we have cocktail: <%= @cocktail.name %></h3>
+<h5>Doses:</h5>
+<% @cocktail.doses.each do |dose|%>
+
+  <strong>Description</strong>: <%= dose.description %><br>
+  <strong>Ingredient</strong>: <%= dose.ingredient.name%><br>
+  <%= link_to "Delete dose", dose_path(dose), method: 'delete'%><br><br>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+<br>
+<%= link_to "delete this cocktail", cocktail_path(@cocktail), method: 'delete'%>
+<br>
+<%= link_to "back to home", cocktails_path %>
+
+<!--
+LOOK AT ROUTES. IF IT NEEDS AN ID, GIVE AN ARGUMENT INSIDE THE URL LIKE LINE 12 14 16.
+so line 12: in rails routes it wont show any "as: " path. so you use the one closest to it going up, AND MUST ALSO SPECIFY THE METHOD
+
+ALSO, FOR ANY OTHER VERB APART FROM GET, SPECIFY THE METHOD. because get is the default
+-->
